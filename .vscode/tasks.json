@@ -1,0 +1,447 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"taskName": "FPSGame Win32 Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"FPSGame",
+				"Win32",
+				"Debug",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win32 Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"FPSGame",
+				"Win32",
+				"Debug",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win32 DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"FPSGame",
+				"Win32",
+				"DebugGame",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win32 DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"FPSGame",
+				"Win32",
+				"DebugGame",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win32 Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"FPSGame",
+				"Win32",
+				"Development",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win32 Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"FPSGame",
+				"Win32",
+				"Development",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win32 Shipping Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"FPSGame",
+				"Win32",
+				"Shipping",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win32 Shipping Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"FPSGame",
+				"Win32",
+				"Shipping",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win32 Test Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"FPSGame",
+				"Win32",
+				"Test",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win32 Test Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"FPSGame",
+				"Win32",
+				"Test",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win64 Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"FPSGame",
+				"Win64",
+				"Debug",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win64 Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"FPSGame",
+				"Win64",
+				"Debug",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win64 DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"FPSGame",
+				"Win64",
+				"DebugGame",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win64 DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"FPSGame",
+				"Win64",
+				"DebugGame",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win64 Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"FPSGame",
+				"Win64",
+				"Development",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win64 Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"FPSGame",
+				"Win64",
+				"Development",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win64 Shipping Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"FPSGame",
+				"Win64",
+				"Shipping",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win64 Shipping Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"FPSGame",
+				"Win64",
+				"Shipping",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win64 Test Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"FPSGame",
+				"Win64",
+				"Test",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGame Win64 Test Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"FPSGame",
+				"Win64",
+				"Test",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGameEditor Win64 Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"FPSGameEditor",
+				"Win64",
+				"Debug",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGameEditor Win64 Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"FPSGameEditor",
+				"Win64",
+				"Debug",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGameEditor Win64 DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"FPSGameEditor",
+				"Win64",
+				"DebugGame",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGameEditor Win64 DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"FPSGameEditor",
+				"Win64",
+				"DebugGame",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGameEditor Win64 Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"FPSGameEditor",
+				"Win64",
+				"Development",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "FPSGameEditor Win64 Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"FPSGameEditor",
+				"Win64",
+				"Development",
+				"\"E:\\UE Project\\FPSGame\\FPSGame.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "E:\\Program Files\\Unreal Engine\\UE_4.18"
+			}
+		}
+	]
+}

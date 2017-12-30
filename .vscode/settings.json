@@ -1,0 +1,11 @@
+{
+	"typescript.tsc.autoDetect": "off",
+	"files.exclude": {
+		"E:/UE Project/FPSGame/.git": true,
+		"E:/UE Project/FPSGame/.vs": true,
+		"E:/UE Project/FPSGame/.vscode": true,
+		"E:/UE Project/FPSGame/Content": true,
+		"E:/UE Project/FPSGame/Intermediate": true,
+		"E:/UE Project/FPSGame/Saved": true
+	}
+}

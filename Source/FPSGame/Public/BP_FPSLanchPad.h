@@ -7,7 +7,7 @@
 #include "BP_FPSLanchPad.generated.h"
 
 class UBoxComponent;
-
+class UParticleSystem;
 UCLASS()
 class FPSGAME_API ABP_FPSLanchPad : public AActor
 {
@@ -22,6 +22,13 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = " Components ")
 		UStaticMeshComponent* LaunchPadMesh;
+
+	FVector ForceStrength = FVector(0);
+
+	UPROPERTY(EditAnywhere, Category = "Components")
+		UParticleSystem* ForceParticleSystem;
+
+
 
 protected:
 	// Called when the game starts or when spawned

@@ -3,6 +3,7 @@
 #include "FPSGameProjectile.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Components/SphereComponent.h"
+#include "Components/PawnNoiseEmitterComponent.h"
 
 AFPSGameProjectile::AFPSGameProjectile() 
 {
@@ -29,6 +30,7 @@ AFPSGameProjectile::AFPSGameProjectile()
 
 	// Die after 3 seconds by default
 	InitialLifeSpan = 3.0f;
+
 }
 
 void AFPSGameProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)

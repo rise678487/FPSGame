@@ -5,12 +5,17 @@
 #include "Components/StaticMeshComponent.h"
 #include "FPSGameCharacter.h"
 #include "Engine/Engine.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ABP_FPSLanchPad::ABP_FPSLanchPad()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	FVector forwardDirect = GetActorForwardVector();
+	ForceStrength = FVector(forwardDirect.X * 400, forwardDirect.Y * 400, 1500.0f);
+
 	LaunchPadMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("LaunchPad mesh"));
 	RootComponent = LaunchPadMesh;
 
@@ -33,12 +38,16 @@ void ABP_FPSLanchPad::BeginPlay()
 
 void ABP_FPSLanchPad::LaunchPadOverlapeed(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResults)
 {
-	FVector forwardDirect = GetActorForwardVector();
 	AFPSGameCharacter* gameChar = Cast<AFPSGameCharacter>(OtherActor);
 	if (gameChar)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Forward Direction :%s"), *forwardDirect.ToString());
-		gameChar->LaunchCharacter(FVector(forwardDirect.X*400, forwardDirect.Y*400, 1500.0f),true,true);
+		gameChar->LaunchCharacter(ForceStrength,true,true);
+		UGameplayStatics::SpawnEmitterAtLocation(this, ForceParticleSystem, GetActorLocation());
+	}
+	else if (OtherComp && OtherComp->IsSimulatingPhysics())
+	{
+		OtherComp->AddImpulse(ForceStrength, NAME_None, false);
+		UGameplayStatics::SpawnEmitterAtLocation(this, ForceParticleSystem, GetActorLocation());
 	}
 }
 

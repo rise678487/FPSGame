@@ -7,6 +7,7 @@
 #include "FPSGameCharacter.generated.h"
 
 class UInputComponent;
+class UPawnNoiseEmitterComponent;
 
 UCLASS(config=Game)
 class AFPSGameCharacter : public ACharacter
@@ -79,6 +80,7 @@ public:
 	/** Whether to use motion controller location for aiming. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	uint32 bUsingMotionControllers : 1;
+
 
 protected:
 	

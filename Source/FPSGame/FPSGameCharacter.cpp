@@ -81,6 +81,7 @@ AFPSGameCharacter::AFPSGameCharacter()
 
 	// Uncomment the following line to turn motion controllers on by default:
 	//bUsingMotionControllers = true;
+
 }
 
 void AFPSGameCharacter::BeginPlay()

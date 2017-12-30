@@ -46,6 +46,8 @@ class AFPSGameCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	class UMotionControllerComponent* L_MotionController;
 
+	
+
 public:
 	AFPSGameCharacter();
 
@@ -80,6 +82,7 @@ public:
 	/** Whether to use motion controller location for aiming. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	uint32 bUsingMotionControllers : 1;
+
 
 
 protected:
@@ -124,6 +127,8 @@ protected:
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
+
+	virtual void Tick(float DeltaSeconds) override;
 	// End of APawn interface
 
 	/* 
@@ -141,7 +146,10 @@ public:
 	FORCEINLINE class UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 	UPROPERTY(BlueprintReadOnly,Category = "Ultility")
 		bool bIsCarryingObject = false;
-		
+protected:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AI")
+		UPawnNoiseEmitterComponent* NoiseEmitterComp;
+
 
 };
 

@@ -24,7 +24,7 @@ void AFPSAIGuard::BeginPlay()
 
 void AFPSAIGuard::OnPawnSeen(APawn* SeenPawn)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Seen "));
+	UE_LOG(LogTemp, Warning, TEXT("Seen  %s"), *SeenPawn->GetName());
 	if(SeenPawn == nullptr)
 	{ 
 		return;
@@ -33,9 +33,14 @@ void AFPSAIGuard::OnPawnSeen(APawn* SeenPawn)
 	
 }
 
-void AFPSAIGuard::OnNoiseHeard(APawn* Instigator, const FVector& Location, float Volume)
+void AFPSAIGuard::OnNoiseHeard(APawn* NoiseInstigators, const FVector& Location, float Volume)
 {
-	DrawDebugSphere(GetWorld(), Location, 200.0f, 12.0f, FColor::Red, false, 10);
+	UE_LOG(LogTemp, Warning, TEXT("Heard :%s"),*NoiseInstigators->GetName());
+	if (NoiseInstigators == nullptr)
+	{
+		return;
+	}
+	DrawDebugSphere(GetWorld(), Location, 100.0f, 12.0f, FColor::Blue, false, 10);
 }
 
 

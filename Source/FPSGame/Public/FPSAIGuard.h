@@ -28,11 +28,16 @@ protected:
 		void OnPawnSeen(APawn* SeenPawn);
 	UFUNCTION()
 		void OnNoiseHeard(APawn* NoiseInstigators, const FVector& Location, float Volume);
+	UFUNCTION()
+		void ResetRot();
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+private:
+	//DO-NOT-CHANGE
+	FRotator OriginalRot = FRotator::ZeroRotator;
+	FTimerHandle Reset_Rot_TimerHandle;
 	
 	
 };

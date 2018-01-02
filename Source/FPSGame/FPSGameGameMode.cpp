@@ -19,7 +19,7 @@ AFPSGameGameMode::AFPSGameGameMode()
 
 }
 
-void AFPSGameGameMode::MissionComplete(APawn* InstigatorPawn)
+void AFPSGameGameMode::MissionComplete(APawn* InstigatorPawn, bool bMissionSuccess)
 {
 	if (InstigatorPawn)
 	{
@@ -34,7 +34,7 @@ void AFPSGameGameMode::MissionComplete(APawn* InstigatorPawn)
 		{
 			NewTarget = ReturnedActors[0];
 		}
-		OnMissionCompleted(InstigatorPawn);
+		OnMissionCompleted(InstigatorPawn,bMissionSuccess);
 		APlayerController* PC = Cast<APlayerController>(InstigatorPawn->GetController());
 		if (PC)
 		{

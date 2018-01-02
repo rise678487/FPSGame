@@ -19,6 +19,8 @@ class AFPSGameProjectile : public AActor
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
 	class UProjectileMovementComponent* ProjectileMovement;
 
+
+
 public:
 	AFPSGameProjectile();
 
@@ -30,5 +32,6 @@ public:
 	FORCEINLINE class USphereComponent* GetCollisionComp() const { return CollisionComp; }
 	/** Returns ProjectileMovement subobject **/
 	FORCEINLINE class UProjectileMovementComponent* GetProjectileMovement() const { return ProjectileMovement; }
+
 };
 

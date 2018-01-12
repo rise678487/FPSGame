@@ -53,6 +53,17 @@ private:
 	//DO-NOT-CHANGE
 	FRotator OriginalRot = FRotator::ZeroRotator;
 	FTimerHandle Reset_Rot_TimerHandle;
+protected:
+	UPROPERTY(EditInstanceOnly, Category = "AI")
+		bool bPatrol;
+	UPROPERTY(EditInstanceOnly, Category = "AI", meta = (EditCondition = "bPatrol"))
+		AActor* FirstPatrolpoint;
+	UPROPERTY(EditInstanceOnly, Category = "AI", meta = (EditCondition = "bPatrol"))
+		AActor* SecondPatrolPoint;
+	//
+	AActor* CurrentPatrolPoint;
+
+	void MoveToNExtPatrol();
 	
 	
 };

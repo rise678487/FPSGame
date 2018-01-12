@@ -147,34 +147,11 @@ void AFPSGameCharacter::Tick(float DeltaSeconds)
 
 void AFPSGameCharacter::OnFire()
 {
+
+	ServerFire();
+
 	// try and fire a projectile
-	if (ProjectileClass != NULL)
-	{
-		UWorld* const World = GetWorld();
-		if (World != NULL)
-		{
-			if (bUsingMotionControllers)
-			{
-				const FRotator SpawnRotation = VR_MuzzleLocation->GetComponentRotation();
-				const FVector SpawnLocation = VR_MuzzleLocation->GetComponentLocation();
-				World->SpawnActor<AFPSGameProjectile>(ProjectileClass, SpawnLocation, SpawnRotation);
-			}
-			else
-			{
-				const FRotator SpawnRotation = GetControlRotation();
-				// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
-				const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr) ? FP_MuzzleLocation->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
-
-				//Set Spawn Collision Handling Override
-				FActorSpawnParameters ActorSpawnParams;
-				ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
-				ActorSpawnParams.Instigator = this;
-
-				// spawn the projectile at the muzzle
-				World->SpawnActor<AFPSGameProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
-			}
-		}
-	}
+	
 
 	// try and play the sound if specified
 	if (FireSound != NULL)
@@ -305,4 +282,32 @@ bool AFPSGameCharacter::EnableTouchscreenMovement(class UInputComponent* PlayerI
 	}
 	
 	return false;
+}
+
+void AFPSGameCharacter::ServerFire_Implementation()
+{
+	if (ProjectileClass != NULL)
+	{
+		UWorld* const World = GetWorld();
+		if (World != NULL)
+		{
+
+				const FRotator SpawnRotation = GetControlRotation();
+				// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
+				const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr) ? FP_MuzzleLocation->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
+
+				//Set Spawn Collision Handling Override
+				FActorSpawnParameters ActorSpawnParams;
+				ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+				ActorSpawnParams.Instigator = this;
+
+				// spawn the projectile at the muzzle
+				World->SpawnActor<AFPSGameProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+			
+		}
+	}
+}
+bool AFPSGameCharacter::ServerFire_Validate()
+{
+	return true;
 }

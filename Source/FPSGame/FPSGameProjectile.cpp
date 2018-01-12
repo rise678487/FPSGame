@@ -31,6 +31,9 @@ AFPSGameProjectile::AFPSGameProjectile()
 	// Die after 3 seconds by default
 	InitialLifeSpan = 3.0f;
 
+	SetReplicates(true);
+	SetReplicateMovement(true);
+
 }
 
 void AFPSGameProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
@@ -42,6 +45,10 @@ void AFPSGameProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor,
 
 	
 	}
-	MakeNoise(1.0f, Instigator);
-	Destroy();
+	if (Role == ROLE_Authority)
+	{
+		MakeNoise(1.0f, Instigator);
+		Destroy();
+	}
+	
 }

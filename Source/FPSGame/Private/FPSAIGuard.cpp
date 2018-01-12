@@ -4,6 +4,8 @@
 #include "Perception/PawnSensingComponent.h"
 #include "DrawDebugHelpers.h"
 #include "FPSGameGameMode.h"
+#include "AI/Navigation/NavigationSystem.h"
+#include "Engine/Engine.h"
 
 // Sets default values
 AFPSAIGuard::AFPSAIGuard()
@@ -22,6 +24,11 @@ AFPSAIGuard::AFPSAIGuard()
 void AFPSAIGuard::BeginPlay()
 {
 	Super::BeginPlay();
+	if (bPatrol)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Black, TEXT("Move To NExt Patrol in Begin Play"));
+		MoveToNExtPatrol();
+	}
 	
 }
 
@@ -42,6 +49,11 @@ void AFPSAIGuard::OnPawnSeen(APawn* SeenPawn)
 	if (GM)
 	{
 		GM->MissionComplete(SeenPawn,false);
+	}
+	AController* Controller = GetController();
+	if (Controller)
+	{
+		Controller->StopMovement();
 	}
 	
 	
@@ -70,6 +82,15 @@ void AFPSAIGuard::OnNoiseHeard(APawn* NoiseInstigators, const FVector& Location,
 	SetActorRotation(NewLookAt);
 	GetWorldTimerManager().ClearTimer(Reset_Rot_TimerHandle);
 	GetWorldTimerManager().SetTimer(Reset_Rot_TimerHandle,this, &AFPSAIGuard::ResetRot, 3.0f);
+	SetGuardState(EAIState::Suspicious);
+
+
+	// Stop Moving if Patroling
+	AController* Controller = GetController();
+	if (Controller)
+	{
+		Controller->StopMovement();
+	}
 	
 	
 }
@@ -83,6 +104,15 @@ void AFPSAIGuard::ResetRot()
 	}
 	SetGuardState(EAIState::Idle);
 	SetActorRotation(OriginalRot);
+
+	if (bPatrol)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Black, TEXT("Work here"));
+
+
+		MoveToNExtPatrol(); 
+	}
+
 }
 
 void AFPSAIGuard::SetGuardState(EAIState newState)
@@ -100,6 +130,31 @@ void AFPSAIGuard::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	if (CurrentPatrolPoint)
+	{
+		
+		FVector Delta = GetActorLocation() - CurrentPatrolPoint->GetActorLocation();
+		float DistanceToGoal = Delta.Size();
+		if (DeltaTime < 500)
+		{
+			MoveToNExtPatrol();
+		//	GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Black, TEXT("Move To NExt Patrol in Tick"));
+		}
+	}
+
+
 }
 
+void AFPSAIGuard::MoveToNExtPatrol()
+{
+	if (CurrentPatrolPoint != nullptr || CurrentPatrolPoint == SecondPatrolPoint)
+	{
+		CurrentPatrolPoint = FirstPatrolpoint;
+	}
+	else 
+	{
+		CurrentPatrolPoint = SecondPatrolPoint;
+	}
+	UNavigationSystem::SimpleMoveToActor(GetController(), CurrentPatrolPoint);
+}
 
